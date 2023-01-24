@@ -1,15 +1,15 @@
-import React from 'react'
-// import { Suspense, lazy } from "react";
+import React, { Suspense, lazy } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 
-import Home from './pages/Home'
-import Layout from './components/Layout/Layout'
-import MovieDetails from './pages/MovieDetails'
-import SearchPage from './pages/SearchPage'
-import Cast from './pages/Cast'
-import Reviews from './pages/Reviews'
+const Home = lazy(async () => await import('./pages/Home'))
+const Layout = lazy(async () => await import('./components/Layout/Layout'))
+const MovieDetails = lazy(async () => await import('./pages/MovieDetails'))
+const SearchPage = lazy(async () => await import('./pages/SearchPage'))
+const Cast = lazy(async () => await import('./pages/Cast'))
+const Reviews = lazy(async () => await import('./pages/Reviews'))
 function App (): JSX.Element {
   return (
+    <Suspense>
     <Routes>
       <Route element={<Layout />}>
         <Route path='/' element={<Home />} />
@@ -21,6 +21,7 @@ function App (): JSX.Element {
       </Route>
       <Route path='*' element={<Navigate to="/" />} />
     </Routes>
+    </Suspense>
   )
 }
 
