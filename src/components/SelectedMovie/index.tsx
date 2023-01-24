@@ -1,10 +1,16 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { NavLink, Outlet, useLocation } from 'react-router-dom'
 import { filmData } from '../../utilities/interfaces'
 import styles from './style.module.css'
 
 function SelectedMovie ({ data }: { data: filmData | null }): JSX.Element {
-  const prevLocation = useLocation().state
+  const location = useLocation()
+  let [prevLocation, setPrevlocation] = useState<null | string>(null)
+  useEffect(() => {
+    setPrevlocation(location.state)
+  }, [])
+  prevLocation ??= '/'
+
   if (data === null) {
     return <div>Oops, there is no such film</div>
   }
