@@ -11,7 +11,6 @@ function Reviews (): JSX.Element {
     if (id !== undefined) {
       getReviews({ id }).then((response) => {
         const result = response
-        console.log(result)
         if (result !== undefined) {
           setCastInfo(result.data.results)
         }

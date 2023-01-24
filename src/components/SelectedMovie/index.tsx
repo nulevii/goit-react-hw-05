@@ -1,10 +1,10 @@
 import React from 'react'
-import { useNavigate, NavLink, Outlet } from 'react-router-dom'
+import { NavLink, Outlet, useLocation } from 'react-router-dom'
 import { filmData } from '../../utilities/interfaces'
 import styles from './style.module.css'
 
 function SelectedMovie ({ data }: { data: filmData | null }): JSX.Element {
-  const navigate = useNavigate()
+  const prevLocation = useLocation().state
   if (data === null) {
     return <div>Oops, there is no such film</div>
   }
@@ -24,7 +24,7 @@ function SelectedMovie ({ data }: { data: filmData | null }): JSX.Element {
 
   return (
     <section className={styles.movieSection}>
-      <button className={styles.button} onClick={() => { navigate(-1) } }>Go back</button>
+      <NavLink className={styles.button} to={prevLocation}>Go back</NavLink>
       <h1>{originalTitle}</h1>
       <p>{tagline}</p>
       <img src={`https://image.tmdb.org/t/p/w500/${backdropPath}`}

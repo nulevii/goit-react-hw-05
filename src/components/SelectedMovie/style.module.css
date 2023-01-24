@@ -1,5 +1,5 @@
-.movieSection{
-  padding: 5px;
+.movieSection {
+  padding: 20px 5px;
 }
 .button {
   color: rgb(139, 135, 135);
@@ -15,12 +15,12 @@
   transition: color, background-color 0.4s;
 }
 
-.button:hover{
+.button:hover {
   background-color: rgb(139, 135, 135);
   color: white;
 }
 
-.button:global.active{
+.button:global.active {
   background-color: rgb(139, 135, 135);
   color: white;
 }
