@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { getSelectedMovie } from '../../utilities/getData'
-import { useParams } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import SelectedMovie from '../../components/SelectedMovie'
 import { filmData } from '../../utilities/interfaces'
 

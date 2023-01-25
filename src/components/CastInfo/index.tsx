@@ -12,7 +12,7 @@ function CastInfo ({ cast }: { cast: Cast[] | null }): JSX.Element {
         const profileImg = (profilePath === null)
           ? 'https://assets.mycast.io/actor_images/actor-an-unknown-actor-465215_large.jpg?1656098263'
           : `https://image.tmdb.org/t/p/w500/${profilePath as string}`
-        return (<article className={style.castCard} key={id}>
+        return (<article className={style.castCard} key={name}>
           <img
             className={style.castImg}
             src={ profileImg}
