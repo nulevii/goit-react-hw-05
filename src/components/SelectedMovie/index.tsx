@@ -19,6 +19,7 @@ function SelectedMovie ({ data }: { data: filmData | null }): JSX.Element {
     backdrop_path: backdropPath,
     original_title: originalTitle,
     tagline,
+
     budget,
     genres,
     overview,
